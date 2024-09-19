@@ -4,6 +4,8 @@ import '../../../core/constants/constants.dart';
 
 import '../../bloc/dashboard/bloc.dart';
 import '../../bloc/dashboard/state.dart';
+import '../../bloc/product/bloc.dart';
+import '../../bloc/product/event.dart';
 import 'bottomNavigationBar.dart';
 import 'favourite/tab.dart';
 import 'home/tab.dart';
@@ -17,6 +19,7 @@ class DashBoardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<ProductBloc>().add( GetProducts());
     return Scaffold(
       appBar: AppBar(
         title: const Text(
