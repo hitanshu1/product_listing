@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../Widgets/Views/Views.dart';
 import '../../../../../core/utils/navigationService.dart';
 import '../../../../../data/models/product.dart';
@@ -21,10 +22,10 @@ class ProductGridItems extends StatelessWidget {
         item: (int index) {
           final ProductModel _product=state.productsList[index];
           return ProductCard(
+            key: Key('product-${_product.id}'),
             onTap: () {
               NavigatorService.pushNamed(AppRoutes.productDetails,
-                  arguments: _product.id);
-             
+              arguments: _product.id);
             },
             product: _product,
           );

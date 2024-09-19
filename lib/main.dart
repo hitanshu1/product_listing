@@ -3,13 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:oktoast/oktoast.dart';
-
+import 'core/utils/getStorage.dart';
 import 'core/utils/navigationService.dart';
-
 import 'domain/repositories/product.dart';
 import 'presentation/bloc/dashboard/bloc.dart';
 import 'presentation/bloc/product/bloc.dart';
 import 'presentation/bloc/productDetails/bloc.dart';
+import 'presentation/bloc/wishList/bloc.dart';
 import 'routes/appRoutes.dart';
 import 'theme.dart';
 
@@ -28,10 +28,10 @@ class MyApp extends StatelessWidget {
     return OKToast(
       child: MultiBlocProvider(
         providers: [
-        
           BlocProvider(create: (context) => DashBoardBloc()),
           BlocProvider(create: (context) => ProductBloc(ProductRepository.instance)),
           BlocProvider(create: (context) => ProductDetailsBloc(repository:ProductRepository.instance)),
+          BlocProvider(create: (context) => WishlistBloc(appGetXStorage: AppGetXStorage.instance)),
         ],
         child: ScreenUtilInit(
             designSize: const Size(375, 812),

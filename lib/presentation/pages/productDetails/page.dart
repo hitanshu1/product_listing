@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart';
+
 import '../../../core/utils/shareService.dart';
 import '../../../domain/repositories/product.dart';
+import '../../bloc/product/bloc.dart';
+import '../../bloc/product/event.dart';
 import '../../bloc/productDetails/bloc.dart';
 import '../../bloc/productDetails/event.dart';
 import '../../bloc/productDetails/state.dart';
+import '../../bloc/wishList/bloc.dart';
+import '../../bloc/wishList/event.dart';
 import 'widgets/details.dart';
 
 /// product details page
@@ -21,7 +27,12 @@ class ProductDetailsPage extends StatefulWidget {
 
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
   bool isInWishlist = false;
-  
+  @override
+  void initState() {
+    isInWishlist = context.read<WishlistBloc>().isInWishlist(widget.id);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -41,7 +52,18 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     color: Colors.amber,
                   ),
                   onPressed: () {
-                   
+                    if (isInWishlist) {
+                      context
+                          .read<WishlistBloc>()
+                          .add(RemoveFromWishlist(state.product));
+                    } else {
+                      context
+                          .read<WishlistBloc>()
+                          .add(AddToWishlist(state.product));
+                    }
+                    isInWishlist = !isInWishlist;
+                    setState(() {});
+                    context.read<ProductBloc>().add(GetProducts());
                     // Handle favorite action
                   },
                 ),
@@ -49,7 +71,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 IconButton(
                   icon: const Icon(Icons.share),
                   onPressed: () {
-                    ShareService.shareText(state.product.title );
+                    ShareService.shareText(state.product.title);
                     // Handle share action
                   },
                 ),
