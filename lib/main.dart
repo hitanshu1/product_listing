@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:oktoast/oktoast.dart';
 
 import 'core/utils/navigationService.dart';
 
+import 'presentation/bloc/dashboard/bloc.dart';
 import 'routes/appRoutes.dart';
 import 'theme.dart';
 
@@ -21,18 +23,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OKToast(
-      child: ScreenUtilInit(
-          designSize: const Size(375, 812),
-          builder: (context, child) {
-            return MaterialApp(
-              navigatorKey: NavigatorService.navigatorKey,
-              debugShowCheckedModeBanner: false,
-              theme: theme(false),
-              themeMode: ThemeMode.light,
-              onGenerateRoute: AppRoutes.generateRoute,
-              initialRoute: AppRoutes.initialRoute,
-            );
-          }),
+      child: MultiBlocProvider(
+        providers: [
+        
+          BlocProvider(create: (context) => DashBoardBloc()),
+        ],
+        child: ScreenUtilInit(
+            designSize: const Size(375, 812),
+            builder: (context, child) {
+              return MaterialApp(
+                navigatorKey: NavigatorService.navigatorKey,
+                debugShowCheckedModeBanner: false,
+                theme: theme(false),
+                themeMode: ThemeMode.light,
+                onGenerateRoute: AppRoutes.generateRoute,
+                initialRoute: AppRoutes.initialRoute,
+              );
+            }),
+      ),
     );
   }
 }

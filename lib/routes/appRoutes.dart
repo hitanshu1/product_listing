@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import '../presentation/pages/dashBoard/page.dart';
 import '../presentation/pages/noInternet/page.dart';
 
 /// app routes
@@ -29,7 +30,7 @@ class AppRoutes {
     switch (settings.name) {
       case initialRoute:
         return MaterialPageRoute(
-          builder: (_) => const Scaffold(),
+          builder: (_) => const DashBoardPage(),
         );
       
       case noInternet:
