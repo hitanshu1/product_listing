@@ -26,6 +26,9 @@ The app follows a clean architecture with separation of concerns:
 - `presentation/bloc`: Includes logic for fetching and managing product state.
 - `presentation/pages`: Contains the UI for the app (Product List, Product Details, wishlist).
 
+![architectre](https://github.com/user-attachments/assets/70238536-0db3-447a-9f74-1166e41d5b5d)
+
+
 ## Setup Instructions
 
 ### Prerequisites
