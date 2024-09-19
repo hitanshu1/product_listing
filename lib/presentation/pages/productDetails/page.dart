@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart';
-
 import '../../../core/utils/shareService.dart';
 import '../../../domain/repositories/product.dart';
 import '../../bloc/product/bloc.dart';

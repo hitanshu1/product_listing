@@ -28,6 +28,7 @@ class FavouriteTab extends StatelessWidget {
           }
           return null; 
         },isLoading: state is WishlistLoading,
+        emptySubtitle: 'No product added',
         itemCount: state is WishlistLoaded ? state.wishlist.length : 0,),
       );
     });
