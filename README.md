@@ -41,3 +41,13 @@ The app follows a clean architecture with separation of concerns:
    git clone https://github.com/hitanshu1/product_listing.git
    cd product_listing
 
+### video of app
+
+https://github.com/user-attachments/assets/c3ff54eb-142f-42a7-a718-335a7265b837
+
+
+
+
+
+
+
