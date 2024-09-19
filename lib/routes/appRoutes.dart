@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import '../presentation/pages/dashBoard/page.dart';
 import '../presentation/pages/noInternet/page.dart';
+import '../presentation/pages/productDetails/page.dart';
 
 /// app routes
 class AppRoutes {
@@ -10,6 +11,8 @@ class AppRoutes {
   static const String initialRoute = '/';
   /// no internet page
   static const String noInternet = '/noInternet';
+  /// product details page
+  static const String productDetails = '/productDetails';
 
 
   /// Generates a route based on the given [RouteSettings].
@@ -36,6 +39,11 @@ class AppRoutes {
       case noInternet:
         return MaterialPageRoute(
           builder: (_) => const NoInternetPage(),
+        );
+      case productDetails:
+        // final int args = settings.arguments as int; // Assuming the argument is a int
+        return MaterialPageRoute(
+          builder: (_) => ProductDetailsPage(id: settings.arguments! as int,)
         );
      
       default:

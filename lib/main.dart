@@ -9,6 +9,7 @@ import 'core/utils/navigationService.dart';
 import 'domain/repositories/product.dart';
 import 'presentation/bloc/dashboard/bloc.dart';
 import 'presentation/bloc/product/bloc.dart';
+import 'presentation/bloc/productDetails/bloc.dart';
 import 'routes/appRoutes.dart';
 import 'theme.dart';
 
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         
           BlocProvider(create: (context) => DashBoardBloc()),
           BlocProvider(create: (context) => ProductBloc(ProductRepository.instance)),
+          BlocProvider(create: (context) => ProductDetailsBloc(repository:ProductRepository.instance)),
         ],
         child: ScreenUtilInit(
             designSize: const Size(375, 812),
