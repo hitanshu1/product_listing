@@ -72,7 +72,7 @@ class _LoaderState extends State<Loader> with TickerProviderStateMixin {
 
   Widget shadowWidget() {
     final double shadowOpacity = shadowAnimation.value;
-    final Color shadowColor = Colors.black.withOpacity(touchedFloor ? 0.3 : 0.1);
+    final Color shadowColor = Colors.black.withAlpha(touchedFloor ? 30 :700);
     final double shadowHeight = touchedFloor ? 0.005 : 0.25;
     final double shadowWidth = widget.size / (touchedFloor ? 5 : 2.5);
     final BoxDecoration shadowDecoration = BoxDecoration(

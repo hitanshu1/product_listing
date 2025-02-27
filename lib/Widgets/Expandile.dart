@@ -80,7 +80,7 @@ class Expandile extends StatefulWidget {
 class _ExpandileState extends State<Expandile> {
   bool expanded = false;
 
-  Color get cardColor => widget.primaryColor.withOpacity(widget.isValid ? 1 : 0.1);
+  Color get cardColor => widget.primaryColor.withAlpha(widget.isValid ? 1000 : 10);
   Color get textColor =>
       widget.isValid ? (widget.validTextColor ?? Colors.white) : widget.primaryColor;
 

@@ -116,7 +116,7 @@ class _IndexedListViewState extends State<IndexedListView> {
               clipBehavior: Clip.antiAlias,
               margin: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colorz.blue.withOpacity(0.075),
+                color: Colorz.blue.withAlpha(75),
                 borderRadius: BorderRadius.circular(8),
               ),
               height: double.maxFinite,

@@ -25,7 +25,7 @@ class ColorTile extends StatelessWidget {
         onTap: onTap,
         child: Card(
           elevation: 0,
-          color: color?.withOpacity(0.03),
+          color: color?.withAlpha(30),
           shadowColor: color,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 12),

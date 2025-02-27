@@ -48,7 +48,7 @@ class Cardd extends StatelessWidget {
           color: color ?? Colors.white,
           borderRadius: BorderRadius.circular(radius??SizeConfig.borderRadius),
           boxShadow: SizeConfig.appShadow,
-          border: Border.all(color: Colors.grey.withOpacity(0.5)),
+          border: Border.all(color: Colors.grey.withAlpha(50)),
         ),
         child: child);
   }

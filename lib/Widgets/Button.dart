@@ -128,7 +128,7 @@ class Button extends StatefulWidget {
       radius: radius,
       width: double.infinity,
       buttonColor: buttonColor ??
-          (isValid ? Colorz.blueAccent : Colorz.blueAccent.withOpacity(.4)),
+          (isValid ? Colorz.blueAccent : Colorz.blueAccent.withAlpha(40)),
       text: 'Submit',
       fontWeight: FontWeight.bold,
       processingText: 'Submitting...',

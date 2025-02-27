@@ -80,7 +80,7 @@ class SizeConfig {
   /// app card shadow
   static List<BoxShadow> appShadow = <BoxShadow>[
     BoxShadow(
-      color: Colors.black.withOpacity(.2),
+      color: Colors.black.withAlpha(20),
       blurRadius: 10.0,
       offset: const Offset(0.0, 10.0), // shadow direction: bottom right
     )

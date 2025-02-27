@@ -71,7 +71,7 @@ class _ProductCardState extends State<ProductCard> {
                     padding: EdgeInsets.all(10.sp),
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Colorz.black.withOpacity(.8),
+                      color: Colorz.black.withAlpha(80),
                       borderRadius: BorderRadius.circular(10.sp),
                     ),
                     child: Column(

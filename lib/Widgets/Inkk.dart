@@ -47,8 +47,8 @@ class Inkk extends StatelessWidget {
                   color: Colors.transparent,
                   borderRadius: borderRadius,
                   child: InkWell(
-                    highlightColor: (spalshColor?? Colorz.primary).withOpacity(0.35),
-                    splashColor: (spalshColor?? Colorz.primary).withOpacity(0.25),
+                    highlightColor: (spalshColor?? Colorz.primary).withAlpha(35),
+                    splashColor: (spalshColor?? Colorz.primary).withAlpha(250),
                     onTap: onTap?? (){},
                   ),
                 )
