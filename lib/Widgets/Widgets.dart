@@ -9,6 +9,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:oktoast/oktoast.dart' as oktoast;
@@ -17,6 +18,7 @@ import '../Extensions/Extensions.dart';
 import '../core/constants/constants.dart';
 
 import '../data/models/Widgets/richString.dart';
+import '../presentation/bloc/theme/bloc.dart';
 
 part './Button.dart';
 part './ColorTile.dart';
@@ -37,6 +39,7 @@ part 'Enabler.dart';
 part 'ViewAppImage.dart';
 part 'richTxt.dart';
 part 'appLoading.dart';
+part 'theme_button.dart';
 
 @Deprecated('Use Widgets.instance')
 ///common widget

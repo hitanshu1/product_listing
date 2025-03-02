@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../data/models/product.dart';
+import 'navigationService.dart';
 
 
 /// app storage
@@ -9,6 +11,9 @@ class AppGetXStorage {
 
   /// instance
   static const AppGetXStorage instance = AppGetXStorage._();
+
+  /// themeMode
+  static const themeMode = 'theme_mode';
 /// user profile
   static const userData = 'user_data';
 
@@ -62,6 +67,17 @@ class AppGetXStorage {
     final box = GetStorage();
     final List<dynamic> currentWishlist = box.read(wishList) ?? [];
     return currentWishlist.map((item) => ProductModel.fromJson(item)).toList();
+  }
+
+  /// set theme mode
+ static void setThemeMode(bool isDark) {
+    final box = GetStorage();
+    box.write(themeMode, isDark);
+  }
+  /// get theme mode
+ static bool getIsDarkTheme() {
+    final box = GetStorage();
+    return box.read(themeMode) ?? MediaQuery.of(NavigatorService.navigatorKey.currentState!.context).platformBrightness == Brightness.dark;
   }
 
 
