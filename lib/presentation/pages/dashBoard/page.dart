@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../Widgets/Widgets.dart';
 import '../../../core/constants/constants.dart';
 
 import '../../bloc/dashboard/bloc.dart';
@@ -25,6 +26,9 @@ class DashBoardPage extends StatelessWidget {
         title: const Text(
           AppInfo.appName,
         ),
+        actions: const [
+          ThemeButton(),
+        ],
       ),
       body:
           BlocBuilder<DashBoardBloc, DashBoardState>(builder: (context, state) {
