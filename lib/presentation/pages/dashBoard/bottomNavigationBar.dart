@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../Widgets/Widgets.dart';
 import '../../../core/constants/constants.dart';
+import '../../../core/theme/data.dart';
 import '../../bloc/dashboard/bloc.dart';
 import '../../bloc/dashboard/event.dart';
 import '../../bloc/dashboard/state.dart';
@@ -63,14 +64,14 @@ class DashBoardNavigationBar extends StatelessWidget {
                   assetsUrl: assetPath,
                   height: 30.sp,
                   width: 30.sp,
-                  color: isActive ? Colorz.blueAccent : Colorz.gray,
+                  color: isActive ? AppThemeData.primaryColor:AppThemeData.inactiveColor,
                 ),
               ),
               SizeConfig.verticalSpaceSmall(),
               Expanded(
                 child: Txt(
                   text ?? '',
-                  color: isActive ? Colorz.blueAccent : Colorz.gray,
+                  color: isActive ?AppThemeData.primaryColor:AppThemeData.inactiveColor,
                 ),
               )
             ],
@@ -83,6 +84,7 @@ class DashBoardNavigationBar extends StatelessWidget {
     return BlocBuilder<DashBoardBloc, DashBoardState>(
       builder: (context, state) {
         return Cardd(
+          color: Theme.of(context).cardColor,
           child: SizedBox(
             height: 70.sp,
             child: Row(
