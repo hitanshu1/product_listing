@@ -25,4 +25,7 @@ class DarkColors {
 
   /// inactive  color
   static const Color inactiveColor = Colors.grey;
+
+  /// error color
+  static const Color error = Colors.red;
 }

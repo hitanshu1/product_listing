@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../Widgets/Widgets.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../../data/models/product.dart';
+import '../../../Extensions/Extensions.dart';
 import '../../bloc/wishList/bloc.dart';
 import '../../bloc/wishList/event.dart';
 
@@ -86,7 +87,7 @@ class _ProductCardState extends State<ProductCard> {
                         ),
                         SizeConfig.verticalSpaceSmall(),
                         Txt(
-                          widget.product.price,
+                          widget.product.price?.toCurrency,
                           toCurrency: true,
                           color: Colorz.white,
                           fontSize: 15.sp,

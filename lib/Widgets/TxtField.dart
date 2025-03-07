@@ -178,8 +178,8 @@ class TxtField extends StatefulWidget {
       this.textCapitalization = TextCapitalization.none,
       this.cardColor,
       this.showLabel = true,
-      this.hintColor = Colors.black54,
-      this.textColor = Colors.black,
+      this.hintColor ,
+      this.textColor ,
       this.borderColor,
       this.contentPadding,
       // this.hideText = false,
@@ -336,11 +336,12 @@ class TxtField extends StatefulWidget {
       }) {
     return TxtField(
       text: text,
-      hintText: hintText ?? 'Search',
+      hintText: hintText ?? AppLocaleKeys.search.tr(),
       onChanged: onChanged,
       showHeader: false,
       leading: Icons.search,
       borderColor: Colorz.blueAccent,
+      // hintColor: Colorz.blueAccent,
       // suffix: IconButton(
       //   icon: const Icon(
       //     Icons.mic,
@@ -378,6 +379,7 @@ class _TextfieldState extends State<TxtField> {
   @override
   Widget build(BuildContext context) {
     final Widget container = Container(
+      key: Key('${Theme.of(context).brightness}'),
       height: widget.height ?? (widget.maxLines == 1 ? 50 : null),
       width: widget.width,
       padding: widget.margin ?? EdgeInsets.zero,
@@ -396,7 +398,7 @@ class _TextfieldState extends State<TxtField> {
         decoration: decoration(),
         // cursorHeight: 10,
         scrollPhysics: const NeverScrollableScrollPhysics(),
-        style: widget.style ?? TextStyle(color: widget.textColor),
+        style: widget.style ?? TextStyle(color: Theme.of(context).colorScheme.onPrimary),
         keyboardType: widget.keyboardType,
         textAlign: widget.textAlign ?? TextAlign.start,
         textCapitalization: widget.textCapitalization,
@@ -428,6 +430,7 @@ class _TextfieldState extends State<TxtField> {
             child: Txt(
               widget.labelText ?? widget.hintText,
               maxlines: 1,
+              
             ),
           ),
           SizeConfig.horizontalSpace(),
@@ -469,8 +472,8 @@ class _TextfieldState extends State<TxtField> {
   }
 
   InputDecoration decoration() {
-    const TextStyle style = TextStyle(
-      color: Colors.black,
+     final TextStyle style = TextStyle(
+      color:Theme.of(context).colorScheme.onPrimary,
       fontSize: 12.5,
       fontWeight: FontWeight.normal,
     );
@@ -492,7 +495,7 @@ class _TextfieldState extends State<TxtField> {
           (widget.labelAsHeader || showLabel == false) ? null : widget.hintText,
       labelStyle: style,
       hintText: widget.hintText,
-      hintStyle: style.copyWith(color: widget.hintColor),
+      hintStyle: style.copyWith(color: widget.hintColor??Theme.of(context).colorScheme.onPrimary),
       fillColor: widget.fieldBackgroundColor,
       counterText: '',
       prefixIcon: prefixIcon(),
@@ -571,7 +574,7 @@ class _TextfieldState extends State<TxtField> {
         hideText
             ? Icons.visibility
             : Icons.visibility_off,
-        color: Colors.black,
+        color:Theme.of(context).colorScheme.onPrimary,
       ),
       onPressed: () {
         setState(() {
@@ -582,9 +585,9 @@ class _TextfieldState extends State<TxtField> {
   }
 
   Widget _dateIcon() {
-    return const Icon(
+    return  Icon(
       Icons.date_range,
-      color: Colors.black,
+      color:Theme.of(context).colorScheme.onPrimary
     );
   }
 

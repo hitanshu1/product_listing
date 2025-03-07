@@ -136,6 +136,7 @@ class _TxtState extends State<Txt> {
     }
 
     return Text(
+      // key:Key('${Theme.of(context).brightness}'),
       finalText,
       overflow: widget.useoverflow ? TextOverflow.ellipsis : null,
       textAlign: widget.textAlign,
@@ -145,7 +146,7 @@ class _TxtState extends State<Txt> {
         decoration: widget.underline
             ? TextDecoration.underline
             : (widget.strikeThrough ? TextDecoration.lineThrough : null),
-        color: widget.color,
+        color: widget.color??Theme.of(context).colorScheme.onPrimary,
         fontSize: (widget.fontSize ?? 14) - 2,
         fontWeight: widget.fontWeight,
         fontStyle: widget.style,

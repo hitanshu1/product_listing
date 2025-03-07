@@ -25,4 +25,7 @@ class LightColors {
 
   /// inactive color
   static const Color inactiveColor = Colors.black26;
+
+  /// error color
+  static const Color error = Colors.red;
 }

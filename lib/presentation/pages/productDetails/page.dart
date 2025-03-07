@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../core/constants/local/locale_keys.dart';
 import '../../../core/utils/shareService.dart';
 import '../../../domain/repositories/product.dart';
 import '../../bloc/product/bloc.dart';
@@ -41,7 +43,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Product Details'),
+            title:  Text(AppLocaleKeys.productDetails.tr()),
             actions: [
               if (state is ProductDetailsLoaded)
                 IconButton(

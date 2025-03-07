@@ -18,6 +18,7 @@ import 'routes/appRoutes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   await GetStorage.init();
   runApp(const MyApp());
 }
@@ -57,10 +58,11 @@ class MyApp extends StatelessWidget {
                   navigatorKey: NavigatorService.navigatorKey,
                   debugShowCheckedModeBanner: false,
                   theme: state.themeData,
-                  themeMode: ThemeMode.light,
+                  // themeMode: ThemeMode.light,
                   localizationsDelegates: context.localizationDelegates,
                   supportedLocales: context.supportedLocales,
                   locale: context.locale,
+
                   onGenerateRoute: AppRoutes.generateRoute,
                   initialRoute: AppRoutes.initialRoute,
                 );

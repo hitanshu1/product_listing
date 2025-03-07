@@ -2,7 +2,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
+
 
 import '../../../core/theme/theme.dart';
 import '../../../core/utils/getStorage.dart';
@@ -22,8 +22,6 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
     /// Save to Hive
    final bool isDarkMode =  AppGetXStorage.getIsDarkTheme();
     AppGetXStorage.setThemeMode(!isDarkMode);
-    
-   
     /// Emit new theme
     emit(state.copyWith(themeData: theme(!isDarkMode), isDark: !isDarkMode));
   }

@@ -1,9 +1,11 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../../../../Extensions/Extensions.dart';
 import '../../../../Widgets/Widgets.dart';
 import '../../../../Widgets/ratingBar.dart';
 import '../../../../core/constants/constants.dart';
+import '../../../../core/constants/local/locale_keys.dart';
 import '../../../../data/models/Widgets/richString.dart';
 import '../../../../data/models/product.dart';
 import 'colorOption.dart';
@@ -43,26 +45,26 @@ class _ProductDetailsState extends State<ProductDetails> {
                 Txt(widget.product.title, 
                 fontSize: 24, fontWeight: FontWeight.bold),
               _infoTitle(
-                title: 'Price',
+                title: AppLocaleKeys.price.tr(),
                 subtitle: '${widget.product.price?.toCurrency}',
               ),
                 
               
                 const RatingBarr(rating: 4,),
                _infoTitle(
-                title: 'Stock',
+                title: AppLocaleKeys.stock.tr(),
                 subtitle: 'In Stock',
                ),
                _infoTitle(
-                title: 'Brand',
+                title: AppLocaleKeys.brand.tr(),
                 subtitle:'Abc',
                ),
                _infoTitle(
-                title: 'Description',
+                title: AppLocaleKeys.description.tr(),
                 subtitle:widget.product.description,
                ),
                 _infoTitle(
-                  title: 'Category',
+                  title: AppLocaleKeys.category.tr(),
                   subtitle: widget.product.category?.name
                 ),
             

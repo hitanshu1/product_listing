@@ -5,6 +5,7 @@ import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,8 @@ import 'package:oktoast/oktoast.dart' as oktoast;
 
 import '../Extensions/Extensions.dart';
 import '../core/constants/constants.dart';
+
+import '../core/constants/local/locale_keys.dart';
 
 import '../data/models/Widgets/richString.dart';
 import '../presentation/bloc/theme/bloc.dart';
@@ -87,12 +90,15 @@ class Widgets {
   static int decimalPlace=2;
   /// app currency symbol
   static String currencySymbol=r'$';
+  
 
 /// avatar image url
   static String avatar(String phoneNumberOrRemoteKey) {
     final String fileName = phoneNumberOrRemoteKey.replaceAll('+', '%2B');
     return 'https://firebasestorage.googleapis.com/v0/b/service-ad14a.appspot.com/o/avatars%2F$fileName.jpg?alt=media';
   }
+
+  
   /// circler loader
 
   static Widget loadingCircle({Color? color, double size = 26}) {

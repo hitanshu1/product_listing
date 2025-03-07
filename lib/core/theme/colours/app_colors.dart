@@ -51,4 +51,9 @@ class AppColors {
     return isDark ? DarkColors.inactiveColor : LightColors.inactiveColor;
   }
 
+  /// error color
+  static Color error(bool isDark) {
+    return isDark ? DarkColors.error : LightColors.error;
+  }
+
 }

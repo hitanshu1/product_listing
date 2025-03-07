@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../Widgets/Widgets.dart';
 import '../../../core/constants/constants.dart';
-import '../../../core/theme/data.dart';
 import '../../bloc/dashboard/bloc.dart';
 import '../../bloc/dashboard/event.dart';
 import '../../bloc/dashboard/state.dart';
@@ -47,7 +46,7 @@ class DashBoardNavigationBar extends StatelessWidget {
       {String? assetPath,
       String? text,
       bool isActive = false,
-      Function? onTap}) {
+      Function? onTap,required BuildContext context}) {
     return Expanded(
       child: Inkk(
           onTap: () {
@@ -64,14 +63,15 @@ class DashBoardNavigationBar extends StatelessWidget {
                   assetsUrl: assetPath,
                   height: 30.sp,
                   width: 30.sp,
-                  color: isActive ? AppThemeData.primaryColor:AppThemeData.inactiveColor,
+                  color: isActive ?Theme.of(context).colorScheme.onPrimary:Theme.of(context).unselectedWidgetColor,
                 ),
               ),
               SizeConfig.verticalSpaceSmall(),
               Expanded(
                 child: Txt(
                   text ?? '',
-                  color: isActive ?AppThemeData.primaryColor:AppThemeData.inactiveColor,
+                  color: isActive ?Theme.of(context).colorScheme.onPrimary:Theme.of(context).unselectedWidgetColor,
+                
                 ),
               )
             ],
@@ -91,6 +91,7 @@ class DashBoardNavigationBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 _bottomBarIcon(
+                  context: context,
                     assetPath: Assets.home,
                     text: 'Home',
                     isActive: state.pageIndex==0,
@@ -98,6 +99,7 @@ class DashBoardNavigationBar extends StatelessWidget {
                       context.read<DashBoardBloc>().add(const ChangeTabDashBoardEvent(0));
                     }),
                 _bottomBarIcon(
+                  context: context,
                     assetPath: Assets.favourite,
                     text: 'Favourite',
                     isActive: state.pageIndex==1,
