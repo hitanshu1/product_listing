@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../Widgets/Widgets.dart';
 import '../../../core/constants/constants.dart';
+import '../../../core/constants/local/locale_keys.dart';
 import '../../bloc/dashboard/bloc.dart';
 import '../../bloc/dashboard/event.dart';
 import '../../bloc/dashboard/state.dart';
@@ -93,7 +95,7 @@ class DashBoardNavigationBar extends StatelessWidget {
                 _bottomBarIcon(
                   context: context,
                     assetPath: Assets.home,
-                    text: 'Home',
+                    text: AppLocaleKeys.home.tr(),
                     isActive: state.pageIndex==0,
                     onTap: () {
                       context.read<DashBoardBloc>().add(const ChangeTabDashBoardEvent(0));
@@ -101,7 +103,7 @@ class DashBoardNavigationBar extends StatelessWidget {
                 _bottomBarIcon(
                   context: context,
                     assetPath: Assets.favourite,
-                    text: 'Favourite',
+                    text: AppLocaleKeys.favourite.tr(),
                     isActive: state.pageIndex==1,
                     onTap: () {
                       context.read<DashBoardBloc>().add(const ChangeTabDashBoardEvent(1));

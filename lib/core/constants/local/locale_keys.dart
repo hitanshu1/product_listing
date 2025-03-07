@@ -13,7 +13,7 @@ class AppLocaleKeys {
   static String category = 'category';
   static String search = 'search';
   static String home = 'home';
-  static String favorite = 'favorite';
+  static String favourite = 'favourite';
   static String product = 'product';
   static String stock = 'stock';
   static String brand = 'brand';

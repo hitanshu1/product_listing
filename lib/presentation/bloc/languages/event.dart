@@ -9,6 +9,7 @@ class LanguagesEvent extends Equatable{
   List<Object?> get props => [];
 }
 
+
 /// change language event
 class ChangeLanguageEvent extends LanguagesEvent{
   /// locale

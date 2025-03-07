@@ -1,7 +1,10 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../presentation/bloc/languages/bloc.dart';
+import '../../presentation/bloc/languages/event.dart';
+import '../../presentation/bloc/languages/state.dart';
 
 /// local dropdown
 class LocalDropdown extends StatelessWidget {
@@ -10,21 +13,38 @@ class LocalDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton<Locale>(
-            value: context.locale,
-            items:  [
-              DropdownMenuItem(value: const Locale('en'), child: Text('English',
-              style: TextStyle(color: Theme.of(context).colorScheme.onPrimary)),),
-              const DropdownMenuItem(value:  Locale('as'), child: Text('Assamese')),
-              const DropdownMenuItem(value: Locale('bn'), child: Text('Bengali')),
-              const DropdownMenuItem(value: Locale('hi'), child: Text('Hindi')),
-            ],
-            onChanged: (Locale? locale) {
-              if (locale != null) {
-                context.setLocale(locale);
-                
-              }
-            },
-          );
+    context.read<LanguagesBloc>().add(ChangeLanguageEvent(locale: context.locale));
+    return BlocBuilder<LanguagesBloc, LanguagesState>(
+      builder: (context, state) {
+        return DropdownButton<Locale>(
+       style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary),
+          value: state.locale,
+          items: [
+            DropdownMenuItem(
+              value: const Locale('en'),
+              child: Text('English',
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary)),
+            ),
+             DropdownMenuItem(
+                value: const Locale('as'), child: Text('অসমীয়া',
+                style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary))),
+             DropdownMenuItem(value: const Locale('bn'), child: Text('বাংলা',
+            style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary))),
+             DropdownMenuItem(value: const Locale('hi'), child: Text('हिंदी',
+             style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary))),
+          ],
+          onChanged: (Locale? locale) {
+            if (locale != null) {
+             context.read<LanguagesBloc>().add(ChangeLanguageEvent(locale: locale));
+            }
+          },
+        );
+      },
+    );
   }
 }

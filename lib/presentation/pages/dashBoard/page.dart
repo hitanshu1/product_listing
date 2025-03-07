@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../Widgets/Widgets.dart';
+import '../../../Widgets/config/local_dropdown.dart';
 import '../../../core/constants/constants.dart';
 
 import '../../bloc/dashboard/bloc.dart';
@@ -28,7 +29,7 @@ class DashBoardPage extends StatelessWidget {
         ),
         actions: const [
           ThemeButton(),
-          // LocalDropdown(),
+          LocalDropdown(),
         ],
       ),
       body:
