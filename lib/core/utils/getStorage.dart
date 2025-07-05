@@ -77,7 +77,8 @@ class AppGetXStorage {
   /// get theme mode
  static bool getIsDarkTheme() {
     final box = GetStorage();
-    return box.read(themeMode) ?? MediaQuery.of(NavigatorService.navigatorKey.currentState!.context).platformBrightness == Brightness.dark;
+    final bool isDark = box.read(themeMode) ?? false;
+    return isDark;
   }
 
 

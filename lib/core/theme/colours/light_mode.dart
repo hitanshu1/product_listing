@@ -24,7 +24,7 @@ class LightColors {
   static const Color scaffoldBackgroundColor = Colors.white;
 
   /// inactive color
-  static const Color inactiveColor = Colors.black26;
+  static const Color inactiveColor = Colors.grey;
 
   /// error color
   static const Color error = Colors.red;

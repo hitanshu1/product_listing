@@ -65,14 +65,14 @@ class DashBoardNavigationBar extends StatelessWidget {
                   assetsUrl: assetPath,
                   height: 30.sp,
                   width: 30.sp,
-                  color: isActive ?Theme.of(context).colorScheme.onPrimary:Theme.of(context).unselectedWidgetColor,
+                  color: isActive ?Theme.of(context).primaryColor:Theme.of(context).unselectedWidgetColor,
                 ),
               ),
               SizeConfig.verticalSpaceSmall(),
               Expanded(
                 child: Txt(
                   text ?? '',
-                  color: isActive ?Theme.of(context).colorScheme.onPrimary:Theme.of(context).unselectedWidgetColor,
+                  color: isActive ?Theme.of(context).primaryColor:Theme.of(context).unselectedWidgetColor,
                 
                 ),
               )
