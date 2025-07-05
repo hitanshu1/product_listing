@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'core/constants/app_config.dart';
 import 'core/constants/local/app_local.dart';
 import 'core/utils/getStorage.dart';
@@ -19,20 +18,12 @@ import 'presentation/bloc/productDetails/bloc.dart';
 import 'presentation/bloc/theme/bloc.dart';
 import 'presentation/bloc/wishList/bloc.dart';
 import 'routes/appRoutes.dart';
-import 'test_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-   _init();
   await GetStorage.init();
   runApp(const MyApp());
-}
-
-
-
-void _init()async{
-  PackageInfo packageInfo = await PackageInfo.fromPlatform();
 }
 
 /// Main App
@@ -82,8 +73,7 @@ class MyApp extends StatelessWidget {
                       locale: localeState.locale,
 
                       onGenerateRoute: AppRoutes.generateRoute,
-                      // initialRoute: AppRoutes.initialRoute,
-                      home: TestPage(),
+                      initialRoute: AppRoutes.initialRoute,
                     );
                   },
                 );
